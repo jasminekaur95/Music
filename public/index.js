@@ -38,7 +38,11 @@ const albumSubmit = (event)=>{
     const newAlbum = {
         name:document.getElementById('album-name').value,
         genre:document.getElementById('album-genre').value,
+        
     }
+    
+    document.getElementById('album-name').value = "";
+    document.getElementById('album-genre').value = "";
 
     axios.post('/api/albums', newAlbum)
     .then(result=>{
@@ -60,6 +64,9 @@ const songSubmit = (event)=>{
         name:document.getElementById('song-name').value,
         album_id:document.getElementById('album-select').value
     }
+    
+    document.getElementById('song-name').value = "";
+    document.getElementById('album-select').value = "";
 
     axios.post('/api/songs', newSong)
     .then(result=>{
